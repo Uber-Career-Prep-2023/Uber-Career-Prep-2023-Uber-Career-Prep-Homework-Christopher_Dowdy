@@ -6,7 +6,9 @@ Intuition:
         - while decrementing pointer, increment counter to know how many characters to skip
         - move pointer 'counter' times
 - check if char at pointer are equal, if not return false
-- 
+Technique: Two arrays/strings two-pointer
+TC: O(n) where n is length of max(len(str1,str2))
+SC: O(1)
 '''
 def BackspaceStringCompare(str1,str2):
     p1, p2 = len(str1)-1, len(str2)-1
@@ -25,6 +27,8 @@ def BackspaceStringCompare(str1,str2):
             return False
         p1-=1
         p2-=1
+    
+    #for the case that one string is longer than the other
     if p1 > 0:
         backspaceCount = 0
         while str1[p1] == '#':
@@ -47,5 +51,7 @@ def BackspaceStringCompare(str1,str2):
 
 print(BackspaceStringCompare("Uber Career Prep", "u#Uber Careee#r Prep"))
 print(BackspaceStringCompare("abcdef###xyz", "abcdefxyz###"))
-
+'''
+Time spent: 50 mins
+'''
     
