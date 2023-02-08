@@ -8,7 +8,7 @@ Intuition:
      all required characters
 - iterate second pointer and repeat process
 Technique: shrinking/growing sliding window
-TC: O(n) where n is the size of string1
+TC: not sure about the TC? need help
 SC: O(m) where m is the size of string2
 '''
 from collections import Counter
