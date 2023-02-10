@@ -24,3 +24,6 @@ def DedupArray(arr):
 print(DedupArray([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]))
 print(DedupArray([0, 0, 1, 4, 5, 5, 5, 8, 9, 9, 10, 11, 15, 15]))
 print(DedupArray([1, 3, 4, 8, 10, 12]))
+'''
+Time spent: 15 mins
+'''
