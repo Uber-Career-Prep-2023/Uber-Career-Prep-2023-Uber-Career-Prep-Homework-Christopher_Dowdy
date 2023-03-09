@@ -32,9 +32,11 @@ def ShortestSubstring(s1,s2):
                 shortestLength = min(shortestLength,length)
     return shortestLength
 
-print(ShortestSubstring("abracadabra", "abc"))
-print(ShortestSubstring("zxycbaabcdwxyzzxwdcbxyzabccbazyx", "zzyzx"))
-print(ShortestSubstring("dog", "god"))
+def main():
+    print(ShortestSubstring("abracadabra", "abc") == 4)
+    print(ShortestSubstring("zxycbaabcdwxyzzxwdcbxyzabccbazyx", "zzyzx") == 10)
+    print(ShortestSubstring("dog", "god") == 3)
+main()
 '''
 Time spent: 1 hour
 '''

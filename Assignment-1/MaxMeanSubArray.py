@@ -20,10 +20,13 @@ def MaxMeanSubArray(arr, k):
             windowStart+=1
     return maxSum/k
 
-print(MaxMeanSubArray([4, 5, -3, 2, 6, 1],2))
-print(MaxMeanSubArray([4, 5, -3, 2, 6, 1],3))
-print(MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1, 6],3))
-print(MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1, 6],4))
+def main():
+    print(MaxMeanSubArray([4, 5, -3, 2, 6, 1],2) == 4.5)
+    print(MaxMeanSubArray([4, 5, -3, 2, 6, 1],3) == 3)
+    print(MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1, 6],3) >= 1.33)
+    print(MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1, 6],4) == 1.5)
+
+main()
 '''
 Time spent: 25 mins
 '''

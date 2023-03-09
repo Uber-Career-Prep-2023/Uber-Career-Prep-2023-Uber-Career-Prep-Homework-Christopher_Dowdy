@@ -20,9 +20,11 @@ def ZeroSumSubArrays(arr):
             prevSums.add(currSum)
     return count
 
-print(ZeroSumSubArrays([4, 5, 2, -1, -3, -3, 4, 6, -7]))
-print(ZeroSumSubArrays([1, 8, 7, 3, 11, 9]))
-print(ZeroSumSubArrays([8, -5, 0, -2, 3, -4])) #I think this should be 2, not 0
+def main():
+    print(ZeroSumSubArrays([4, 5, 2, -1, -3, -3, 4, 6, -7]) == 2)
+    print(ZeroSumSubArrays([1, 8, 7, 3, 11, 9]) == 0)
+    print(ZeroSumSubArrays([8, -5, 0, -2, 3, -4]) == 2)
+main()
 '''
 Time spent: 50 mins
 '''

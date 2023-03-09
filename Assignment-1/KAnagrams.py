@@ -26,12 +26,13 @@ def KAnagrams(str1, str2, k):
         if changes > k:
             return False
     return True
-
-print(KAnagrams("apple", "peach",1))
-print(KAnagrams("apple", "peach",2))
-print(KAnagrams("cat", "dog",3))
-print(KAnagrams("debit curd", "bad credit",1))
-print(KAnagrams("baseball", "basketball",2)) #shouldn't this out put true because you change at most 2 characters?
+def main():
+    print(KAnagrams("apple", "peach",1) == False)
+    print(KAnagrams("apple", "peach",2) == True)
+    print(KAnagrams("cat", "dog",3) == True)
+    print(KAnagrams("debit curd", "bad credit",1) == True)
+    print(KAnagrams("baseball", "basketball",2) == False) #shouldn't this out put true because you change at most 2 characters?
+main()
 '''
 Time spent: 25 mins
 '''

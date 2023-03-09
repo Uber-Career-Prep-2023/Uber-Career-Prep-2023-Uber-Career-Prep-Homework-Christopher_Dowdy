@@ -27,10 +27,11 @@ def ReverseVowels(str):
         l+=1
         r-=1
     return str
-
-print(ReverseVowels("Uber Career Prep"))
-print(ReverseVowels("xyz"))
-print(ReverseVowels("flamingo"))
+def main():
+    print(ReverseVowels("Uber Career Prep") == "eber Ceraer PrUp")
+    print(ReverseVowels("xyz") == "xyz")
+    print(ReverseVowels("flamingo")== "flominga")
+main()
 '''
 Time spent: 30 mins
 '''

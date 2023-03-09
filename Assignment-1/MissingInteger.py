@@ -15,9 +15,11 @@ def MissingInteger(arr, n):
         count+=1
     return 0
 
-print(MissingInteger([1, 2, 3, 4, 6, 7],7))
-print(MissingInteger([1],2))
-print(MissingInteger([1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12],12))
+def main():
+    print(MissingInteger([1, 2, 3, 4, 6, 7],7) == 5)
+    print(MissingInteger([1],2) == 2)
+    print(MissingInteger([1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12],12) == 9)
+main()
 '''
 Time spent: 15 mins
 '''

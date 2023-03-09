@@ -48,9 +48,10 @@ def BackspaceStringCompare(str1,str2):
         if p2 > 0:
             return False
     return True
-
-print(BackspaceStringCompare("Uber Career Prep", "u#Uber Careee#r Prep"))
-print(BackspaceStringCompare("abcdef###xyz", "abcdefxyz###"))
+def main():
+    print(BackspaceStringCompare("Uber Career Prep", "u#Uber Careee#r Prep") == True)
+    print(BackspaceStringCompare("abcdef###xyz", "abcdefxyz###") == False)
+main()
 '''
 Time spent: 50 mins
 '''
