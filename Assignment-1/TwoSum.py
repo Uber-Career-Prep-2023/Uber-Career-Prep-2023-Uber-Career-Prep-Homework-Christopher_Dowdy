@@ -8,25 +8,27 @@
 - SC: O(n) where n is length of array
 '''
 def TwoSum(arr, k):
-    checkSum = {}
+    checkSum = set()
+    if k%2 == 0:
+        checkSum.add(k//2)
     sumCount = 0
     for num in arr:
         if num in checkSum:
-            sumCount+= checkSum[num]
-            checkSum[num]+=1
+            sumCount+=1
         else:
-            checkSum[k-num]=1
+            checkSum.add(k-num)
     return sumCount
 '''
 arr = [1, 10, 8, 3, 2, 5, 7, 2, -2, -1]
-k = 10
+arr = [4,4,4]
+k = 8
 set = {9,0,2,7,5,}
 sumCount = 2
 checkSum[2] = 2
 checkSum[7] = 2
 '''
 def main():
-    print(TwoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1],10) == 3)
+    print(TwoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1],10)==3)
     print(TwoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1],8) == 3) #is the hw output incorrect for this?
     print(TwoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6],6) == 5)
     print(TwoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6],1) == 0)  

@@ -10,6 +10,12 @@ Intuition:
 Technique: shrinking/growing sliding window
 TC: not sure about the TC? need help
 SC: O(m) where m is the size of string2
+
+
+Input Strings: "abracadabra", "abc"
+Output: 4
+(Shortest Substring: "brac")
+
 '''
 from collections import Counter
 
