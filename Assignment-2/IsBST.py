@@ -11,7 +11,11 @@ Technique: DFS
 TC: O(n) where n is # of nodes in tree
 SC: O(n) where n is # of nodes in tree
 '''
-
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+    
 def IsBST(root):
     def dfs(node,nMin,nMax):
         if not node:
@@ -25,3 +29,13 @@ def IsBST(root):
 '''
 time spent: 30 mins
 '''
+
+#/***********************TESTING****************************/#
+root1 = TreeNode(5)
+root1.left = TreeNode(3)
+root1.right = TreeNode(7)
+root1.left.left = TreeNode(2)
+root1.left.right = TreeNode(4)
+root1.right.left = TreeNode(6)
+root1.right.right = TreeNode(8)
+assert IsBST(root1) == True

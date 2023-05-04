@@ -14,6 +14,11 @@ SC: O(n) where n is # of nodes
 
 question for mentor: is there a better sol. with O(1) space?
 '''
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        self.tail = None
 
 def DisconnectCycle(head):
     prev = None
@@ -33,3 +38,16 @@ def DisconnectCycle(head):
 '''
 Time spent: 30 mins
 '''
+#/***********************TESTING****************************/#
+
+head1 = ListNode(1)
+head1.next = ListNode(2)
+head1.next.next = ListNode(3)
+head1.next.next.next = ListNode(4)
+head1.next.next.next.next = head1.next
+result1 = DisconnectCycle(head1)
+assert result1.val == 1
+assert result1.next.val == 2
+assert result1.next.next.val == 3
+assert result1.next.next.next.val == 4
+assert result1.next.next.next.next == None
