@@ -8,7 +8,7 @@ def createGraph(list):
         if pair[1] not in adjacencySet:
             adjacencySet[pair[1]] = set()
 
-createGraph([(1, 2), (2, 3), (1, 3), (3, 2), (2, 0)])
+createGraph([(5, 2), (5, 0), (4, 0), (4, 1), (2, 3),(3,1)])
 print(adjacencySet)
 
 def bfs(start, target):
@@ -43,6 +43,31 @@ def dfs(start, target):
                 s.append(neighbor)
     return False
 
-print(dfs(1,3))
-print(bfs(1,3))
-        
+print(dfs(5,2))
+print(bfs(5,2))
+
+def topologicalSort():
+    indegrees = {node : 0 for node in adjacencySet}
+    for node in adjacencySet:
+        for neighbor in adjacencySet[node]:
+            indegrees[neighbor]+=1
+    
+    validNodes = []
+    for node in indegrees:
+        if indegrees[node] == 0:
+            validNodes.append(node)
+    
+    res = []
+
+    while validNodes:
+        currNode = validNodes.pop()
+        res.append(currNode)
+
+        for neighbor in adjacencySet[currNode]:
+            indegrees[neighbor]-=1
+            if indegrees[neighbor] == 0:
+                validNodes.append(neighbor)
+    
+    return res
+
+print(topologicalSort())
