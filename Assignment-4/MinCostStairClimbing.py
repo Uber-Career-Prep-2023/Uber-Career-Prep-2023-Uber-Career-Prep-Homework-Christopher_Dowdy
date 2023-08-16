@@ -6,7 +6,7 @@ Intuition:
 - f(0) = 0 bc it costs $0 to be at the start
 - f(1) = cost[0] bc we can only climb one step
 - f(2) = min(cost[0] + cost[1],cost[1])=> min(cost[1])
-Technique: Dynamic Programming
+Technique: Bottom Up Dynamic Programming
 TC: O(n) where n is size of cost arr
 TC: O(n) where n is size of cost arr
 '''
@@ -25,8 +25,13 @@ def MinCostStairClimbing(cost):
         dp[i] = cost[i-1]+min(dp[i-1],dp[i-2])
     return min(dp[-1],dp[-2])
 
-print(MinCostStairClimbing([4, 1, 6, 3, 5, 8]))
-print(MinCostStairClimbing([11, 8, 3, 4, 9, 13, 10]))
+def testSuite():
+    assert(MinCostStairClimbing([4, 1, 6, 3, 5, 8]) == 9)
+    assert(MinCostStairClimbing([11, 8, 3, 4, 9, 13, 10]) == 25)
+    assert(MinCostStairClimbing([1,100,1,1,1,100,1,1,100,1]) == 6)
+
+testSuite()
+
 
 '''
 Time spent: 15 mins
