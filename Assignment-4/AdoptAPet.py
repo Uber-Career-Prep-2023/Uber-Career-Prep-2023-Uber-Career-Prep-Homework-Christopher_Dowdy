@@ -44,18 +44,19 @@ def AdoptAPet(pets,actions):
     
     return res
 
-pets = [("Sadie","dog",4),
+def testSuite():
+    pets = [("Sadie","dog",4),
         ("Woof","cat",7),
         ("Chirpy","dog",2),
         ("Lola","dog",1)]
 
-actions = [
+    actions = [
         ("Bob", "person", "dog"),
         ("Floofy", "cat"),
         ("Sally", "person", "cat"),
         ("Ji", "person", "cat"),
         ("Ali", "person", "cat")
         ]
-print(AdoptAPet(pets,actions))
+    assert(AdoptAPet(pets,actions) == [['Sadie', 'dog'], ['Woof', 'cat'], ['Floofy', 'cat'], ['Chirpy', 'dog']])
 
 # time spent: 30 mins
