@@ -45,12 +45,31 @@ class PriorityQueue:
             self.heap[i], self.heap[largest] = self.heap[largest], self.heap[i]
             self.heapifyDown(largest)
 
-pq = PriorityQueue()
+def testSuite():
+    pq = PriorityQueue()
 
-pq.insert('A', 2)
-pq.insert('B', 5)
-pq.insert('C', 3)
+    pq.insert('A', 2)
+    assert(pq.top() == ('A', 2))
 
-print(pq.remove())  
-print(pq.remove()) 
-print(pq.remove())  
+    pq.insert('B', 5)
+    assert(pq.top() == ('B', 5))
+
+    pq.insert('C', 1)
+    assert(pq.top() == ('B', 5))
+
+    pq.insert('D', 3)
+    assert(pq.top() == ('B', 5))
+
+    assert(pq.remove() == ('B', 5))
+    assert(pq.top() == ('D', 3))
+
+    assert(pq.remove() == ('D', 3))
+    assert(pq.top() == ('A', 2))
+
+    assert(pq.remove() == ('A', 2))
+    assert(pq.top() == ('C', 1))
+    assert(pq.remove() == ('C', 1))
+    assert(pq.top() is None)
+    assert(pq.remove() is None)
+
+testSuite()

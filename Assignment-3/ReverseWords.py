@@ -24,8 +24,15 @@ def ReverseWords(words):
         else:
             res = res + curr
     return res
-print(ReverseWords("Uber Career Prep"))
-print(ReverseWords("Emma lives in Brooklyn, New York."))
+
+def testSuite():
+    assert(ReverseWords("Uber Career Prep") == "Prep Career Uber")
+    assert(ReverseWords("Emma lives in Brooklyn, New York.") == "York. New Brooklyn, in lives Emma")
+    assert(ReverseWords("test") == "test")
+    assert(ReverseWords("") == "")
+    assert(ReverseWords("Uber is cool") == "cool is Uber")
+
+testSuite()
 '''
 15 mins
 '''

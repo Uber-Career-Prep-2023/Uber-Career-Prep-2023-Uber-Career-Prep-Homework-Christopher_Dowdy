@@ -64,8 +64,16 @@ def RoadNetworks(roadPairs):
                 return count
     return 0
 
-print(RoadNetworks([("Anchorage", "Homer"), ("Glacier Bay", "Gustavus"), ("Copper Center", "McCarthy"), ("Anchorage", "Copper Center"), ("Copper Center", "Fairbanks"), ("Healy", "Fairbanks"), ("Healy", "Anchorage")]))
-print(RoadNetworks([("Kona", "Volcano"), ("Volcano", "Hilo"), ("Lahaina", "Hana"), ("Kahului", "Haiku"), ("Hana", "Haiku"), ("Kahului", "Lahaina"), ("Princeville", "Lihue"), ("Lihue", "Waimea")]))
+def testSuite():
+    roadPairs = [("Anchorage", "Homer"), ("Glacier Bay", "Gustavus"), ("Copper Center", "McCarthy"), ("Anchorage", "Copper Center"), ("Copper Center", "Fairbanks"), ("Healy", "Fairbanks"), ("Healy", "Anchorage")]
+    assert(RoadNetworks(roadPairs) == 2)
+
+    roadPairs =[("Kona", "Volcano"), ("Volcano", "Hilo"), ("Lahaina", "Hana"), ("Kahului", "Haiku"), ("Hana", "Haiku"), ("Kahului", "Lahaina"), ("Princeville", "Lihue"), ("Lihue", "Waimea")]
+    assert(RoadNetworks(roadPairs) == 3)
+    
+    assert(RoadNetworks([]) == 0)
+
+testSuite()
 '''
 Time spent: 35 mins
 '''

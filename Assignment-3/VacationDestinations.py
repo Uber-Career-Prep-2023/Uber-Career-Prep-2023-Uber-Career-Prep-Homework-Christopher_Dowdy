@@ -29,11 +29,16 @@ def VacationDestinations(destinations, origin, k):
                 visited.add(neighbor)
     return res
 
-input = [("Boston", "New York", 4), ("New York", "Philadelphia", 2), ("Boston", "Newport", 1.5), ("Washington, D.C.", "Harper's Ferry", 1), ("Boston", "Portland", 2.5), ("Philadelphia", "Washington, D.C.", 2.5)]
+def testSuite():
+    input = [("Boston", "New York", 4), ("New York", "Philadelphia", 2), ("Boston", "Newport", 1.5), ("Washington, D.C.", "Harper's Ferry", 1), ("Boston", "Portland", 2.5), ("Philadelphia", "Washington, D.C.", 2.5)]
+    assert(VacationDestinations(input, "New York",5) == ['Boston', 'Philadelphia'])
+    assert(VacationDestinations(input, "New York",7) == ['Boston', 'Philadelphia', 'Newport', 'Washington, D.C.'])
+    assert(VacationDestinations(input, "New York",8) == ['Boston', 'Philadelphia', 'Newport', 'Portland', 'Washington, D.C.', "Harper's Ferry"])
 
-print(VacationDestinations(input, "New York",5))
-print(VacationDestinations(input, "New York",7))
-print(VacationDestinations(input, "New York",8))
+    input = [("a", "b", 1), ("b", "c", 2), ("b", "d", 4)]
+    assert(VacationDestinations(input, "a",1) == ["b"])
+    
+testSuite()
 '''
 Time spent: 20 mins
 '''
