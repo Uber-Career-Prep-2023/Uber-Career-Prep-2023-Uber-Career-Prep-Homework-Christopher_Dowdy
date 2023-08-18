@@ -9,22 +9,21 @@ TC: O(m*n) where m is # of words, n is length of string
 SC: O(m*n)
 '''
 
-def WordBreak(input,dictionary):
-    dp = [False]*(len(input)+1)
-    dp[len(input)] = True
+def word_break(input_string, dictionary):
+    dp = [False] * (len(input_string) + 1)
+    dp[len(input_string)] = True
 
-    for i in range(len(input)-1,-1,-1):
+    for i in range(len(input_string) - 1, -1, -1):
         for word in dictionary:
-            if (i + len(word)) <= len(input) and input[i:i+len(word)] == word:
-                dp[i] = dp[i+len(word)]
-    
+            if (i + len(word)) <= len(input_string) and input_string[i:i + len(word)] == word:
+                dp[i] = dp[i + len(word)]
+
     return dp[0]
 
-def testSuite():
-    assert(WordBreak("ubereats",["uber","eats"]))
-    assert(WordBreak("uberuber",["uber","eats"]))
-    assert(not WordBreak("ububer",["uber","eats"]))
-    assert(not WordBreak("abe",["ab","a","b"]))
+def test_suite():
+    assert word_break("ubereats", ["uber", "eats"])
+    assert word_break("uberuber", ["uber", "eats"])
+    assert not word_break("ububer", ["uber", "eats"])
+    assert not word_break("abe", ["ab", "a", "b"])
 
-testSuite()
-# Time spent: 1 hr
+test_suite()

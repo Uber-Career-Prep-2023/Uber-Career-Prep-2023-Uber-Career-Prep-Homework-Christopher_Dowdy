@@ -9,7 +9,7 @@ TC: O(n*m) where n is # of coins and m is amount
 SC: O(m) where m is amount
 '''
 
-def CoinChange(coins, amount):
+def coin_change(coins, amount):
     dp = [0] * (amount + 1)
     dp[0] = 1
     
@@ -19,12 +19,12 @@ def CoinChange(coins, amount):
     
     return dp[amount]
 
-def testSuite():
-    assert(CoinChange([2, 5, 10],20) == 6)
-    assert(CoinChange([2, 5, 10],15) == 3)
-    assert(CoinChange([1,2,5],5) == 4)
-    assert(CoinChange([2],3) == 0)
-    assert(CoinChange([9],9) == 1)
+def test_suite():
+    assert coin_change([2, 5, 10], 20) == 6
+    assert coin_change([2, 5, 10], 15) == 3
+    assert coin_change([1, 2, 5], 5) == 4
+    assert coin_change([2], 3) == 0
+    assert coin_change([9], 9) == 1
 
-testSuite()
+test_suite()
 # 50 minutes spent

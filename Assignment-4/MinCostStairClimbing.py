@@ -11,26 +11,27 @@ TC: O(n) where n is size of cost arr
 TC: O(n) where n is size of cost arr
 '''
 
-def MinCostStairClimbing(cost):
+def min_cost_stair_climbing(cost):
     if len(cost) == 1:
         return cost[0]
     if len(cost) == 2:
         return cost[1]
     
-    dp = [0]*(len(cost)+1)
+    dp = [0] * (len(cost) + 1)
     dp[1] = cost[0]
     dp[2] = cost[1]
 
-    for i in range(3,len(cost)+1):
-        dp[i] = cost[i-1]+min(dp[i-1],dp[i-2])
-    return min(dp[-1],dp[-2])
+    for i in range(3, len(cost) + 1):
+        dp[i] = cost[i - 1] + min(dp[i - 1], dp[i - 2])
+    return min(dp[-1], dp[-2])
 
-def testSuite():
-    assert(MinCostStairClimbing([4, 1, 6, 3, 5, 8]) == 9)
-    assert(MinCostStairClimbing([11, 8, 3, 4, 9, 13, 10]) == 25)
-    assert(MinCostStairClimbing([1,100,1,1,1,100,1,1,100,1]) == 6)
+def test_suite():
+    assert min_cost_stair_climbing([4, 1, 6, 3, 5, 8]) == 9
+    assert min_cost_stair_climbing([11, 8, 3, 4, 9, 13, 10]) == 25
+    assert min_cost_stair_climbing([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]) == 6
 
-testSuite()
+test_suite()
+
 
 
 '''

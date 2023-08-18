@@ -11,24 +11,24 @@ Technique: Bottom up DP
 TC: O(n^2)
 SC: O(n)
 '''
-def CatalanNumbers(n):
+def catalan_numbers(n):
     if n == 0:
         return [1]
-    dp = [0]*(n+1)
-    dp[0],dp[1] = 1,1
+    dp = [0] * (n + 1)
+    dp[0], dp[1] = 1, 1
 
-    for i in range(2, n+1):
+    for i in range(2, n + 1):
         for j in range(i):
-            dp[i]+=dp[j]*dp[i-j-1]
+            dp[i] += dp[j] * dp[i - j - 1]
     
     return dp
 
-def testSuite():
-    assert(CatalanNumbers(1) == [1,1])
-    assert(CatalanNumbers(5) == [1, 1, 2, 5, 14, 42])
-    assert(CatalanNumbers(0) == [1])
+def test_suite():
+    assert catalan_numbers(1) == [1, 1]
+    assert catalan_numbers(5) == [1, 1, 2, 5, 14, 42]
+    assert catalan_numbers(0) == [1]
 
-testSuite()
+test_suite()
 
 '''
 Time spent: 25 mins

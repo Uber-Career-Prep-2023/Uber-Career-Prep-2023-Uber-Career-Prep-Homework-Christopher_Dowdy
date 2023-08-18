@@ -10,10 +10,10 @@ TC: O(n^2*m^2)
 SC: O(1)
 '''
 
-def LargestSquaresOf1s(matrix): 
+def largest_squares_of_1s(matrix): 
     rows = len(matrix)
     cols = len(matrix[0]) if rows > 0 else 0
-    maxSquare = 0
+    max_square = 0
     
     for i in range(rows):
         for j in range(cols):
@@ -31,20 +31,20 @@ def LargestSquaresOf1s(matrix):
                             break
                     if flag:
                         length += 1
-                maxSquare = max(maxSquare, length)
+                max_square = max(max_square, length)
     
-    return maxSquare
+    return max_square
 
-def testSuite():
+def test_suite():
     matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
-    assert(LargestSquaresOf1s(matrix) == 2)
+    assert largest_squares_of_1s(matrix) == 2
 
     matrix = [["0","1"],["1","0"]]
-    assert(LargestSquaresOf1s(matrix) == 1)
+    assert largest_squares_of_1s(matrix) == 1
 
     matrix = [["0"]]
-    assert(LargestSquaresOf1s(matrix)==0)
+    assert largest_squares_of_1s(matrix) == 0
 
-testSuite()
+test_suite()
 
 # time spent: 45 mins

@@ -1,76 +1,74 @@
 class TrieNode:
     def __init__(self):
-        self.children = [None]*26
-        self.validWord = False
+        self.children = [None] * 26
+        self.valid_word = False
 
 class Trie:
     def __init__(self):
         self.root = TrieNode()
     
     def insert(self, word):
-        currNode = self.root
+        curr_node = self.root
 
         for letter in word:
-            letterIndex = ord(letter)-97 # convert letter to index
+            letter_index = ord(letter) - 97  # convert letter to index
 
-            if not currNode.children[letterIndex]:
-                newNode = TrieNode()
-                currNode.children[letterIndex] = newNode
+            if not curr_node.children[letter_index]:
+                new_node = TrieNode()
+                curr_node.children[letter_index] = new_node
 
-            currNode = currNode.children[letterIndex]
-        currNode.validWord = True
+            curr_node = curr_node.children[letter_index]
+        curr_node.valid_word = True
     
-    def isValidWord(self, word):
-        currNode = self.root
+    def is_valid_word(self, word):
+        curr_node = self.root
 
         for letter in word:
-            letterIndex = ord(letter)-97
+            letter_index = ord(letter) - 97
 
-            if not currNode.children[letterIndex]:
+            if not curr_node.children[letter_index]:
                 return False
-            currNode = currNode.children[letterIndex]
-        return currNode.validWord
+            curr_node = curr_node.children[letter_index]
+        return curr_node.valid_word
     
-    def isEmpty(self, root):
+    def is_empty(self, root):
         for i in range(26):
             if root.children[i]:
                 return False
         return True
     
     def remove(self, word):
-        def dfs(root,word,depth):
+        def dfs(root, word, depth):
             if not root:
                 return None
 
             if depth == len(word): 
-                if root.validWord:
-                    root.validWord = False
-                if self.isEmpty(root):
+                if root.valid_word:
+                    root.valid_word = False
+                if self.is_empty(root):
                     del root
                     root = None
                 return root
             
-            index = ord(word[depth])-97
+            index = ord(word[depth]) - 97
             root.children[index] = dfs(root.children[index], word, depth + 1)
 
-            if self.isEmpty(root) and not root.validWord:
+            if self.is_empty(root) and not root.valid_word:
                 del root
                 root = None
             return root
         
-        dfs(self.root,word,0)
+        dfs(self.root, word, 0)
 
-def testSuite():
+def test_suite():
     test = Trie()
     test.insert("uber")
-    assert(test.isValidWord("uber"))
+    assert(test.is_valid_word("uber"))
     test.insert("umbrella")
-    assert(test.isValidWord("umbrella"))
-    assert(test.isValidWord("hi") == False)
+    assert(test.is_valid_word("umbrella"))
+    assert(test.is_valid_word("hi") == False)
 
     test.remove("uber")
-    assert(test.isValidWord("uber") == False)
+    assert(test.is_valid_word("uber") == False)
 
-testSuite()
-
-
+test_suite()

@@ -7,7 +7,7 @@ TC: O(nlogn) where n is length of number stream
 SC: O(n) where n is length of number stream
 '''
 
-def RunningMedian(nums):
+def running_median(nums):
     store = []
     res = []
     for num in nums:
@@ -17,16 +17,16 @@ def RunningMedian(nums):
         n = len(store)
 
         if n % 2 == 1:
-            res.append(store[n//2])
+            res.append(store[n // 2])
         else:
-            res.append((store[n//2-1]+store[n//2])/2.0)
+            res.append((store[n // 2 - 1] + store[n // 2]) / 2.0)
 
     return res
 
-def testSuite():
-    assert(RunningMedian([1,2,3]) == [1,1.5,2.0])
-    assert(RunningMedian([1,11,4,15,12]) == [1, 6.0, 4, 7.5, 11])
+def test_suite():
+    assert running_median([1, 2, 3]) == [1, 1.5, 2.0]
+    assert running_median([1, 11, 4, 15, 12]) == [1, 6.0, 4, 7.5, 11]
 
-testSuite()
+test_suite()
 
 # time spent: 20 mins
