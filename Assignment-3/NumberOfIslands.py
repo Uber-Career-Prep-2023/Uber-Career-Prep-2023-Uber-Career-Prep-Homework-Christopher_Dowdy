@@ -8,6 +8,8 @@ SC: O(mxn) where m is the # of rows and n is # of cols
 '''
 
 def numIslands(grid):
+    if len(grid) == 0:
+        return 0
     rows = len(grid)
     cols = len(grid[0])
 
@@ -29,6 +31,27 @@ def numIslands(grid):
                 count +=1
     return count
 
+def testSuite():
+    assert(numIslands([]) == 0)
+    assert(numIslands([["1","1","1","1","0"],
+                      ["1","1","0","1","0"],
+                      ["1","1","0","0","0"],
+                      ["0","0","0","0","0"]]) == 1)
+    
+    assert(numIslands([["1","1","0","0","0"],
+                       ["1","1","0","0","0"],
+                       ["0","0","1","0","0"],
+                       ["0","0","0","1","1"]]) == 3)
+    
+    assert(numIslands([["0","0","0"], 
+                       ["1","0","0"]]) == 1)
+    
+    assert(numIslands([["0","1","0"],
+                       ["1","0","1"],
+                       ["0","1","0"]]) == 4)
+    
+testSuite()
 '''
 Time spent: 7 mins
 '''
+

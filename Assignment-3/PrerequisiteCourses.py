@@ -43,10 +43,13 @@ def PrerequisiteCourses(courses, map):
                 leafs.append(node)
     return res
 
-print(PrerequisiteCourses(["Intro to Programming", "Data Structures", "Advanced Algorithms", "Operating Systems", "Databases"], { "Data Structures": ["Intro to Programming"], "Advanced Algorithms": ["Data Structures"], "Operating Systems": ["Advanced Algorithms"], "Databases": ["Advanced Algorithms"] }
-))
-print(PrerequisiteCourses(["Intro to Writing", "Contemporary Literature", "Ancient Literature", "Comparative Literature", "Plays & Screenplays"], { "Contemporary Literature": ["Intro to Writing"], "Ancient Literature": ["Intro to Writing"], "Comparative Literature": ["Ancient Literature", "Contemporary Literature"], "Plays & Screenplays": ["Intro to Writing"] }))
-    
+def testSuite():
+    assert(PrerequisiteCourses(["Intro to Programming", "Data Structures", "Advanced Algorithms", "Operating Systems", "Databases"], { "Data Structures": ["Intro to Programming"], "Advanced Algorithms": ["Data Structures"], "Operating Systems": ["Advanced Algorithms"], "Databases": ["Advanced Algorithms"] }) == ['Intro to Programming', 'Data Structures', 'Advanced Algorithms', 'Databases', 'Operating Systems'])
+    assert(PrerequisiteCourses(["Intro to Writing", "Contemporary Literature", "Ancient Literature", "Comparative Literature", "Plays & Screenplays"], { "Contemporary Literature": ["Intro to Writing"], "Ancient Literature": ["Intro to Writing"], "Comparative Literature": ["Ancient Literature", "Contemporary Literature"], "Plays & Screenplays": ["Intro to Writing"] }) == ['Intro to Writing', 'Plays & Screenplays', 'Ancient Literature', 'Contemporary Literature', 'Comparative Literature'])
+    assert(PrerequisiteCourses([],{}) == [])
+    assert(PrerequisiteCourses(["a", "b"], {"a":["b"]}) == ["b","a"])
+    assert(PrerequisiteCourses(["a", "b", "c"], {"a": ["b"], "b":["c"]}) == ["c","b","a"])
+testSuite() 
 """
 Time spent: 30 mins
 """

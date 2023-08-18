@@ -38,11 +38,18 @@ def AlternatingPath(edges,origin,dest):
     
     return -1
 
-inputEdges = [('A', 'B', "blue"), ('A', 'C', "red"), ('B', 'D', "blue"), ('B', 'E', "blue"), ('C', 'B', "red"),
+def testSuite():
+    inputEdges = [('A', 'B', "blue"), ('A', 'C', "red"), ('B', 'D', "blue"), ('B', 'E', "blue"), ('C', 'B', "red"),
                    ('D', 'C', "blue"), ('A', 'D', "red"),
                    ('D', 'E', "red"), ('E', 'C', "red")]
-print(AlternatingPath(inputEdges,'A','E'))
-print(AlternatingPath(inputEdges,'E','D'))
+    
+    assert(AlternatingPath(inputEdges,'A','E') == 4)
+    assert(AlternatingPath(inputEdges,'E','D') == -1)
+    assert(AlternatingPath(inputEdges,'B','C') == 2)
+    assert(AlternatingPath(inputEdges,'A','B') == 1)
+    assert(AlternatingPath(inputEdges,'B','E') == 1)
+    
+testSuite()
 '''
 Time spent: 30 mins
 '''

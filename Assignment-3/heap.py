@@ -10,12 +10,13 @@ class Heap:
         self.heapifyUp()
 
     def heapifyUp(self):
-        child = len(self.heap)-1
-        parent = (child-1)//2
+        child = len(self.heap) - 1
+        parent = (child - 1) // 2
 
         while parent >= 0 and self.heap[parent] > self.heap[child]:
-            self.heap[parent],self.heap[child] = self.heap[child],self.heap[parent]
-            child, parent = parent, (child-1)//2
+            self.heap[parent], self.heap[child] = self.heap[child], self.heap[parent]
+            child = parent
+            parent = (child - 1) // 2
 
     def remove(self):
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
@@ -38,12 +39,33 @@ class Heap:
             self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
             self.heapifyDown(smallest)
 
-    
-h = Heap()
-h.insert(7)
-h.insert(3)
-h.insert(9)
+def testSuite():
+    h = Heap()
 
-print(h.remove())
-print(h.remove())
-print(h.remove())
+    # Test inserting elements
+    h.insert(5)
+    assert(h.top() == 5)
+    h.insert(3)
+    assert(h.top() == 3)
+    h.insert(8)
+    assert(h.top() == 3)
+    h.insert(1)
+    assert(h.top() == 1)
+
+    # Test removing elements
+    assert(h.remove() == 1)
+    assert(h.top() == 3)
+    assert(h.remove() == 3)
+    assert(h.top() == 5)
+
+    # Test inserting more elements
+    h.insert(7)
+    assert(h.top() == 5)
+    h.insert(2)
+    assert(h.top() == 2)
+    h.insert(9)
+    assert(h.remove() == 2)
+    assert(h.remove() == 5)
+    
+
+testSuite()

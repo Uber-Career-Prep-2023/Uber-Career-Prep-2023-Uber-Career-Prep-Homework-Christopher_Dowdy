@@ -8,9 +8,6 @@ def createGraph(list):
         if pair[1] not in adjacencySet:
             adjacencySet[pair[1]] = set()
 
-createGraph([(5, 2), (5, 0), (4, 0), (4, 1), (2, 3),(3,1)])
-print(adjacencySet)
-
 def bfs(start, target):
     q = deque()
     visited = set()
@@ -43,9 +40,6 @@ def dfs(start, target):
                 s.append(neighbor)
     return False
 
-print(dfs(5,2))
-print(bfs(5,2))
-
 def topologicalSort():
     indegrees = {node : 0 for node in adjacencySet}
     for node in adjacencySet:
@@ -70,4 +64,22 @@ def topologicalSort():
     
     return res
 
-print(topologicalSort())
+def testSuite():
+    # Test createGraph
+    createGraph([(5, 2), (5, 0), (4, 0), (4, 1), (2, 3), (3, 1)])
+    assert(adjacencySet == {5: {0, 2}, 2: {3}, 0: set(), 4: {0, 1}, 1: set(), 3: {1}})
+    
+    # Test bfs and dfs
+    assert(bfs(5,2) == True)
+    assert(dfs(5,2) == True)
+    assert(bfs(5,3) == True)
+    assert(dfs(5,3) == True)
+    assert(bfs(5,4) == False)
+    assert(dfs(5,4) == False)
+    assert(bfs(2,0) == False)
+    assert(dfs(2,0) == False)
+
+    # Test Topological Sort
+    assert(topologicalSort() == [4, 5, 2, 3, 1, 0])
+
+testSuite()
